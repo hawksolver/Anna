@@ -1,0 +1,115 @@
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes backgroundChange {
+  0% { background-color: #5004b5; } /* Sua cor favorita */
+  25% { background-color: #1215f3; } /* Azul */
+  50% { background-color: #5004b5; } /* Sua cor favorita */
+  75% { background-color: #1215f3; } /* Azul */
+  100% { background-color: #5004b5; } /* Sua cor favorita */
+}
+
+@keyframes heartColorChange {
+  0% { background-color: #ff69b4; }
+  50% { background-color: #1215f3; }
+  100% { background-color: #ff69b4; }
+}
+
+body {
+  background-image: url('url-da-imagem.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 50px;
+  animation: backgroundChange 5s infinite;
+  margin: 0;
+}
+
+h1, p, h3 {
+  animation: fadeIn 2s ease-in;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #1215f3; /* Azul */
+  border: none;
+  border-radius: 15px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #5004b5; /* Sua cor favorita */
+  transition: background-color 0.3s ease-in-out;
+}
+
+.heart {
+  width: 100px;
+  height: 90px;
+  background-color: #ff69b4;
+  position: relative;
+  display: inline-block;
+  margin: 60px auto;
+  animation: heartColorChange 3s infinite;
+  transform: rotate(-60deg);
+}
+
+.heart:before,
+.heart:after {
+  content: "";
+  width: 100px;
+  height: 90px;
+  background-color: #ff69b4;
+  border-radius: 50%;
+  position: absolute;
+  top: -50px;
+}
+
+.heart:before {
+  left: 50px;
+}
+
+.heart:after {
+  left: 0;
+}
+
+.slide-in {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Responsividade */
+@media only screen and (max-width: 600px) {
+  body {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  p, h3 {
+    font-size: 18px;
+  }
+
+  button {
+    font-size: 14px;
+  }
+
+  .heart {
+    width: 60px;
+    height: 54px;
+  }
+
+  .heart:before,
+  .heart:after {
+    width: 60px;
+    height: 54px;
+    top: -30px;
+  }
+}
