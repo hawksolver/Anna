@@ -8,4 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }, index * 500); // 500ms delay for cada elemento
     });
   });
+
+
+
   

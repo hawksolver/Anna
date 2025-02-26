@@ -11,11 +11,6 @@
   100% { background-color: #5004b5; } /* Sua cor favorita */
 }
 
-@keyframes heartColorChange {
-  0% { background-color: #ff69b4; }
-  50% { background-color: #1215f3; }
-  100% { background-color: #ff69b4; }
-}
 
 body {
   background-image: url('url-da-imagem.jpg');
@@ -24,58 +19,35 @@ body {
   color: #fff;
   text-align: center;
   padding: 50px;
-  animation: backgroundChange 5s infinite;
+  animation: backgroundChange 15s infinite;
   margin: 0;
 }
 
 h1, p, h3 {
-  animation: fadeIn 2s ease-in;
+  animation: fadeIn 3s ease-in;
+}
+h3{
+  font-size: 2.6em;
+  padding: 10px;
 }
 
 button {
-  padding: 10px 20px;
-  background-color: #1215f3; /* Azul */
+  padding: 10px 15px;
+  background-color: #1215f3;
   border: none;
   border-radius: 15px;
   color: white;
-  font-size: 16px;
+  font-size: 26px;
+  margin-top: 0px;
   cursor: pointer;
 }
 
 button:hover {
   background-color: #5004b5; /* Sua cor favorita */
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.6s ease-in-out;
 }
 
-.heart {
-  width: 100px;
-  height: 90px;
-  background-color: #ff69b4;
-  position: relative;
-  display: inline-block;
-  margin: 60px auto;
-  animation: heartColorChange 3s infinite;
-  transform: rotate(-60deg);
-}
 
-.heart:before,
-.heart:after {
-  content: "";
-  width: 100px;
-  height: 90px;
-  background-color: #ff69b4;
-  border-radius: 50%;
-  position: absolute;
-  top: -50px;
-}
-
-.heart:before {
-  left: 50px;
-}
-
-.heart:after {
-  left: 0;
-}
 
 .slide-in {
   opacity: 0;
@@ -99,17 +71,5 @@ button:hover {
 
   button {
     font-size: 14px;
-  }
-
-  .heart {
-    width: 60px;
-    height: 54px;
-  }
-
-  .heart:before,
-  .heart:after {
-    width: 60px;
-    height: 54px;
-    top: -30px;
   }
 }
