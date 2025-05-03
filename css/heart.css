@@ -1,0 +1,37 @@
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.851);
+  display: flex; /* Centraliza o conteúdo */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+}
+
+canvas {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  background: transparent; /* Se necessário */
+}
+
+/* Transição para preto */
+body.zoom-out {
+  transform: scale(1); /* Aumenta o zoom */
+  opacity: 0; /* Gradualmente desaparece */
+  background: black; /* Transição para preto */
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+/* Entrada suave na próxima tela */
+body.fade-in {
+  opacity: 0; /* Começa invisível */
+  animation: fadeIn 1s ease-in-out forwards; /* Animação de entrada */
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1; /* Fica visível */
+  }
+}

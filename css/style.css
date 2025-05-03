@@ -1,0 +1,139 @@
+body {
+  height: 100vh;
+  margin: 0;
+  background-color: black;
+  display: flex;
+  align-items: center;
+}
+.container {
+  font-size: 5px;
+  width: 40em;
+  height: 40em;
+  position: absolute;
+  align-items: center;
+}
+.info {
+  font-size: 10em;
+}
+.sol {
+  background-color: #ffca3a;
+  width: 10em;
+  height: 10em;
+  position: absolute;
+  top: 15em;
+  left: 15em;
+  border-radius: 50%;
+  box-shadow: 0 0 3em white;
+}
+.terra,
+.lua {
+  border-color: white transparent transparent transparent;
+  border-style: solid;
+  border-width: 0.1em 0.1em 0 0;
+  border-radius: 50%;
+  position: absolute;
+}
+.terra {
+  top: 5em;
+  left: 5em;
+  width: 30em;
+  height: 30em;
+  animation: orbit 36.5s linear infinite;
+}
+.lua {
+  top: 0;
+  right: 0;
+  width: 8em;
+  height: 8em;
+  animation: orbit 2.5s linear infinite;
+}
+.terra::before,
+.lua::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+.terra::before {
+  background-color: #1e34fa;
+  top: 2.8em;
+  right: 2.8em;
+  width: 3em;
+  height: 3em;
+}
+.lua::before {
+  background-color: #f1f1f1;
+  top: 0.8em;
+  right: 0.8em;
+  width: 1.2em;
+  height: 1.2em;
+}
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.controls {
+  font-size: 20em;
+  background-color: white;
+  align-items: center;
+  height: 200px;
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 2px;
+  }
+  .container {
+    width: 20em;
+    height: 20em;
+  }
+  .sol {
+    width: 50em;
+    height: 50em;
+    top: 70.5em;
+    left: 60.5em;
+  }
+  .terra {
+    font-size: 9px;
+    width: 23em;
+    height: 23em;
+    top: 10.5em;
+    left: 7.5em;
+  }
+  .lua {
+    width: 4em;
+    height: 4em;
+    top: -0.5em;
+    right: -0.5em;
+  }
+}
+
+@media (min-width: 1200px) {
+  body {
+    font-size: 1.5px;
+  }
+  .container {
+    width: 15em;
+    height: 15em;
+  }
+  .sol {
+    width: 140em;
+    height: 140em;
+    top: 180.5em;
+    left: 140.5em;
+  }
+  .terra {
+    font-size: 18px;
+    width: 25em;
+    height: 25em;
+    top: 8.5em;
+    left: 5.5em;
+  }
+  .lua {
+    width: 3em;
+    height: 3em;
+    top: -0.5em;
+    right: -0.5em;
+  }
+}
