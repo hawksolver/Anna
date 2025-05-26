@@ -7,21 +7,33 @@ body {
 }
 .container {
   font-size: 5px;
-  width: 40em;
-  height: 40em;
+  width: 30em;
+  height: 30em;
   position: absolute;
   align-items: center;
 }
-.info {
-  font-size: 10em;
+
+.zld-btn {
+  position: fixed;
+  top: 20px;
+  left: 1700px;
+  background-color: #575757;
+  border-radius: 200px;
+  color: white;
+  padding: 10px 20px;
+  border: solid 0px #000000;
+  text-align: center;
+  z-index: 1000;
+  font-size: 1%;
 }
+
 .sol {
   background-color: #ffca3a;
-  width: 10em;
-  height: 10em;
+  width: 28em;
+  height: 28em;
   position: absolute;
-  top: 15em;
-  left: 15em;
+  top: 18.5em;
+  left: 24.5em;
   border-radius: 50%;
   box-shadow: 0 0 3em white;
 }
@@ -34,17 +46,17 @@ body {
   position: absolute;
 }
 .terra {
-  top: 5em;
-  left: 5em;
-  width: 30em;
-  height: 30em;
+  top: 10em;
+  left: 12em;
+  width: 50em;
+  height: 50em;
   animation: orbit 36.5s linear infinite;
 }
 .lua {
   top: 0;
   right: 0;
-  width: 8em;
-  height: 8em;
+  width: 11em;
+  height: 12em;
   animation: orbit 2.5s linear infinite;
 }
 .terra::before,
@@ -57,8 +69,8 @@ body {
   background-color: #1e34fa;
   top: 2.8em;
   right: 2.8em;
-  width: 3em;
-  height: 3em;
+  width: 7em;
+  height: 7em;
 }
 .lua::before {
   background-color: #f1f1f1;
@@ -67,17 +79,54 @@ body {
   width: 1.2em;
   height: 1.2em;
 }
+
+/* talvez a orbita da terra -_-# */
 @keyframes orbit {
   to {
     transform: rotate(360deg);
   }
 }
+/* zelda text part */
 
-.controls {
-  font-size: 20em;
-  background-color: white;
-  align-items: center;
-  height: 200px;
+.zelda {
+  background-color: #5a5a5a3b;
+  border-radius: 13px;
+  font-family: "Zelda", sans-serif;
+  width: 602px;
+  height: 692px;
+  color: white;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 65%;
+  transform: translate(-50%, -50%);
+}
+.zelda-p {
+  line-height: 25px;
+}
+.zelda-p::after {
+  content: "|";
+  animation: blink 0.7s steps(1) infinite;
+  margin-left: 2px;
+}
+.go {
+  background-color: #1e34fa;
+  border-radius: 20px;
+  color: white;
+  padding: 10px 20px;
+  border: solid 2px #1e34fa;
+  text-align: center;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
 }
 
 @media (max-width: 600px) {
@@ -104,35 +153,6 @@ body {
   .lua {
     width: 4em;
     height: 4em;
-    top: -0.5em;
-    right: -0.5em;
-  }
-}
-
-@media (min-width: 1200px) {
-  body {
-    font-size: 1.5px;
-  }
-  .container {
-    width: 15em;
-    height: 15em;
-  }
-  .sol {
-    width: 140em;
-    height: 140em;
-    top: 180.5em;
-    left: 140.5em;
-  }
-  .terra {
-    font-size: 18px;
-    width: 25em;
-    height: 25em;
-    top: 8.5em;
-    left: 5.5em;
-  }
-  .lua {
-    width: 3em;
-    height: 3em;
     top: -0.5em;
     right: -0.5em;
   }

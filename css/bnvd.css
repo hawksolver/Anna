@@ -40,7 +40,7 @@ body.fade-in {
 }
 .comeco p {
   font-size: 9px;
-  margin: 40px 0;
+  margin: 70px 0;
 }
 .comeco button {
   margin-top: 5px;
@@ -70,7 +70,7 @@ body.transition {
     font-size: 30px;
   }
   .comeco p {
-    font-size: 24px;
+    font-size: 14px;
   }
   .comeco button {
     padding: 15px 30px;

@@ -2,22 +2,48 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" href="../img/forca.png" type="image/x-icon" />
-    <link rel="stylesheet" href="../css/forca.css" media="screen" />
-    <title>Forca kkkk</title>
+    <link rel="stylesheet" href="../css/forca.css" />
+    <title>Jogo da Forca com Senha</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
   </head>
+
   <body>
+    <!-- Tela da senha -->
+    <div id="tela-senha">
+      <h2>Digite a senha para jogar</h2>
+      <input
+        type="password"
+        id="input-senha"
+        placeholder="Senha"
+        autocomplete="off"
+      />
+      <button onclick="verificarSenha()">Entrar</button>
+      <p id="mensagem-erro">Senha incorreta!</p>
+    </div>
+
+    <!-- Container do jogo da forca -->
     <div class="container">
-      <div id="image"></div>
-      <div id="palavra-secreta">
-        <!-- <div class="letras">A</div>
-            <div class="letras">F</div>
-            <div class="letras">G</div>
-            <div class="letras">A</div>
-            <div class="letras">S</div>
-            <div class="letras">M</div> -->
+      <div class="titulo">
+        <h1>Jogo da Forca</h1>
+        <p>é infinito então quando se cansar é só avançar</p>
+        <div class="zelda-icons">
+          <a href="./playlist.html"><i class="fas fa-arrow-left"></i></a>
+          <a href="./End.html"><i class="fas fa-arrow-right"></i></a>
+        </div>
       </div>
+      <img id="image" src="../img/forca.png" alt="Forca" />
+
+      <div id="palavra-secreta"></div>
+
       <div id="teclado">
         <div class="teclas">
           <button id="tecla-A" onclick="verificaLetraEscolhida('A')">A</button>
@@ -50,14 +76,15 @@
           <button id="tecla-X" onclick="verificaLetraEscolhida('X')">X</button>
           <button id="tecla-Y" onclick="verificaLetraEscolhida('Y')">Y</button>
           <button id="tecla-Z" onclick="verificaLetraEscolhida('Z')">Z</button>
-          <button id="btnReniciar">🎮</button>
+          <button id="btnReniciar" onclick="reiniciarJogo()">🎮</button>
         </div>
       </div>
-      <div id="categoria"></div>
-      <!-- Modal -->
 
-      <!-- Modal -->
+      <div id="categoria"></div>
     </div>
+
+    <!-- Próximo -->
+
     <script src="../script/forca.js"></script>
   </body>
 </html>

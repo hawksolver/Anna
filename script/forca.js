@@ -1,269 +1,159 @@
+// Variáveis do jogo
 let tentativas = 6;
 let listaDinamica = [];
 let palavraSecretaCategoria;
 let palavraSecretaSorteada;
-const palavras = [
-   palavra001 = {
-      nome:  "SAMUEL",
-      categoria:  "Alguém"
-   },
-   palavra002 = {
-      nome: "ANNA",
-      categoria: "Alguém"
-   },
-   palavra003 = {
-      nome: "CLAUDIA",
-      categoria: "Alguém"
-   },
-   palavra004 = {
-      nome: "LEANDRO",
-      categoria: "Alguém"
-   },
-   palavra005 = {
-      nome: "OTAVIO",
-      categoria: "Alguém"
-   },
-   palavra006 = {
-      nome: "LUCIANO",
-      categoria: "Alguém"
-   },
-   palavra007 = {
-      nome: "DANI",
-      categoria: "Alguém"
-   },
-   palavra008 = {
-      nome: "SMALL",
-      categoria: "Alguém"
-   },
-   palavra009 = {
-      nome: "ROXO",
-      categoria: "Cor favorita"
-   },
-   palavra010 = {
-      nome: "AZUL",
-      categoria: "Cor favorita"
-   },
-   palavra011 = {
-      nome: "PRETO",
-      categoria: "Cor"
-   },
-   palavra012 = {
-      nome: "BRANCO",
-      categoria:"Cor"
-   },
-   palavra013 = {
-      nome: "FUTEBOL",
-      categoria: "Esporte"
-   },
-   palavra014 = {
-      nome: "KARATE",
-      categoria: "Esporte"
-   },
-   palavra015 = {
-      nome: "VOLEI",
-      categoria: "Esporte"
-   },
-   palavra016 = {
-      nome: "FEIJOADA",
-      categoria: "Comida"
-   },
-   palavra017 = {
-      nome: "PIZZA",
-      categoria: "Comida"
-   },
-   palavra018 = {
-      nome: "BOLO",
-      categoria: "Comida"
-   },
-   palavra019 = {
-      nome:  "PAO",
-      categoria: "Comida"
-   },
-   palavra020 = {
-      nome: "ESFIHA",
-      categoria: "Comida"
-   },
-   palavra021 = {
-      nome: "PASTEL",
-      categoria: "Comida"
-   },
-   palavra022 = {
-      nome: "ARGENTINA",
-      categoria: "Lugar"
-   },
-   palavra023 = {
-      nome: "FRANCA",
-      categoria: "Lugar"
-   },
-   palavra024 = {
-      nome: "PARIS",
-      categoria: "Lugar"
-   },
-   palavra025 = {
-      nome: "RIO DE JANEIRO",
-      categoria: "Lugar"
-    },
-   palavra026 = {
-      nome: "TORRE EIFEEL",
-      categoria: "Ponto Turistico"
-    },
-    palavra027 = {
-       nome: "CRISTO REDENTOR",
-       categoria: "Ponto Turistico"
-    },
-    palavra028 = {
-       nome : "COALA",
-       categoria: "Animal"
-    },
-    palavra029 = {
-       nome: "GATO",
-       categoria: "Animal"
-    },
-    palavra030 = {
-       nome: "CACHORRO",
-       categoria: "Animal"
-    },
-    palavra031 = {
-       nome: "TIGRE",
-       categoria: "Animal"
-    },
-    palavra032 = {
-       nome: "URSO",
-       categoria: "Animal"
-    },
-    palavra033 = {
-       nome: "STICH",
-       categoria: "Personagem fictício"
-    },
-    palavra034 = {
-       nome: "PIKACHU",
-       categoria: "Personagem fictício"
-    },
-    palavra035 = {
-       nome: "VER",
-       categoria: "Sentimento"
-    },
-    palavra036 = {
-       nome: "RAIVA",
-       categoria: "Sentimento"
-    },
-    palavra037 = {
-       nome: "AUSTRALIA",
-       categoria: "LUGAR"
-    },
-    palavra038 = {
-       nome: "AMOR",
-       categoria: "Sentimento"
-    },
-    palavra039 = {
-       nome: "TRISTEZA",
-       categoria: "Sentimento"
-    },
-    palavra040 = {
-       nome: "CALMA",
-       categoria: "Sentimento"
-    },
-    palavra041 = {
-      nome: "IMPOSSIVEL",
-      categoria: "IMPOSSIVEL"
-    },
-    palavra042 = {
-      nome: "CELULAR",
-      categoria: "Eletronicos"
-    },
-    palavra043 = {
-      nome: "COMPUTADOR",
-      categoria: "Eletronicos"
-    },
-    palavra044 = {
-      nome: "FACEBOOK",
-      categoria: "REDE SOCIAL"
-    },
-    palavra045 = {
-      nome: "WHATSAPP",
-      categoria: "REDE SOCIAL"
-    },
-    palavra046 = {
-      nome: "FIM",
-      categoria: "FIM"
-    },
 
+const palavras = [
+  { nome: "FIVE", categoria: "Número" },
+  { nome: "SETENTA E SETE", categoria: "Número" },
+  { nome: "MILKA OREO", categoria: "Doce" },
+  { nome: "BOLINHO", categoria: "Doce" },
+  { nome: "ZELDA", categoria: "Jogo" },
+  { nome: "LUCIANO", categoria: "Alguém" },
+  { nome: "AZUL", categoria: "Cor" },
+  { nome: "ROXA", categoria: "Cor" },
+  { nome: "5004B5", categoria: "Cor" },
+  { nome: "LILO E STITCH", categoria: "Filme" },
+  { nome: "CARATE", categoria: "Ação" },
+  { nome: "TOCAR TECLADO", categoria: "Ação" },
+  { nome: "FUTEBOL", categoria: "Ação" },
+  { nome: "BEE", categoria: "Inglês" },
+  { nome: "PINK", categoria: "Inglês" },
+  { nome: "TABLE", categoria: "Inglês" },
+  { nome: "WORK", categoria: "Inglês" },
+  { nome: "PEOPLES", categoria: "Inglês" },
+  { nome: "LIMERENCIA", categoria: "PALAVRA ESPECIAL" },
 ];
 
+// Função da senha
+function verificarSenha() {
+  const senhaCorreta = "1234"; // troca aqui a senha que quiser
+  const senhaDigitada = document.getElementById("input-senha").value.trim();
 
-criarPalavraSecreta();
-function criarPalavraSecreta(){
-   const indexPalavra = parseInt(Math.random() * palavras.length)
-
-    palavraSecretaSorteada = palavras[indexPalavra].nome;
-    palavraSecretaCategoria = palavras[indexPalavra].categoria;
-    console.log(palavraSecretaSorteada);
-    console.log(palavraSecretaCategoria);
+  if (senhaDigitada === senhaCorreta) {
+    document.getElementById("tela-senha").style.display = "none";
+    document.querySelector(".container").style.display = "flex";
+    iniciarJogo();
+  } else {
+    const erro = document.getElementById("mensagem-erro");
+    erro.style.display = "block";
+    setTimeout(() => {
+      erro.style.display = "none";
+    }, 2000);
+  }
 }
 
-montarPalavraNaTela(); 
-function montarPalavraNaTela(){
-   const categoria = document.getElementById("categoria");
-   categoria.innerHTML = palavraSecretaCategoria;
+// Função para iniciar o jogo da forca
+function iniciarJogo() {
+  // sorteia palavra e categoria
+  const palavraSorteada = palavras[Math.floor(Math.random() * palavras.length)];
+  palavraSecretaSorteada = palavraSorteada.nome.toUpperCase();
+  palavraSecretaCategoria = palavraSorteada.categoria;
+  listaDinamica = [];
 
-   const palavraTela = document.getElementById("palavra-secreta");
-   palavraTela.innerHTML = " ";
+  // preenche listaDinamica com "_" ou espaço
+  for (let i = 0; i < palavraSecretaSorteada.length; i++) {
+    if (palavraSecretaSorteada[i] === " ") {
+      listaDinamica.push(" ");
+    } else {
+      listaDinamica.push("_");
+    }
+  }
 
-   for(i = 0; i < palavraSecretaSorteada.length; i ++){
-      if(listaDinamica[i] == undefined)
-      {
-         listaDinamica[i] = "&nbsp;"
-         palavraTela.innerHTML = palavraTela.innerHTML + "<div class = 'letras'>" + listaDinamica[i] + "</div>"
-      }
-      else{
-         palavraTela.innerHTML = palavraTela.innerHTML + "<div class='letras'>" + listaDinamica[i] + "</div>"         
-      }
-   }
-
-
+  tentativas = 6;
+  atualizarPalavraNaTela();
+  atualizarImagemForca();
+  atualizarCategoria();
+  habilitarTeclado(true);
 }
 
-function verificaLetraEscolhida(letra){
-   if(tentativas > 0 )
-   {   
-      mudarStyleLetra("tecla-" + letra);
-      comparalistas(letra);
-      montarPalavraNaTela();
-   }
+function atualizarPalavraNaTela() {
+  const palavraSecretaElemento = document.getElementById("palavra-secreta");
+  palavraSecretaElemento.innerHTML = "";
 
+  for (let i = 0; i < listaDinamica.length; i++) {
+    let span = document.createElement("span");
+    span.classList.add("letras");
+    span.innerText = listaDinamica[i];
+    palavraSecretaElemento.appendChild(span);
+  }
 }
 
-function mudarStyleLetra(tecla){
-   document.getElementById(tecla).style.background = "#020bf7";
-   document.getElementById(tecla).style.color = "#fff";
+function atualizarCategoria() {
+  const categoriaElemento = document.getElementById("categoria");
+  categoriaElemento.innerText = `Categoria: ${palavraSecretaCategoria}`;
 }
-function comparalistas(letra){
-   const pos = palavraSecretaSorteada.indexOf(letra)
-   if(pos < 0){
-      tentativas--
-      //ibagem KKKKKKKKKK
-      //hmmmmmm, num compensa, verificação de tentativas, mensagem
-   }
-   else{
-      for(i = 0; i < palavraSecretaSorteada.length; i++)
-         {
-            if(palavraSecretaSorteada[i] == letra ){
-                listaDinamica[i] = letra;
-               }
-            } 
-         }
-         
 
-   let vitoria = true;
-         for(i = 0; i < palavraSecretaSorteada.length; i ++){
-            if(palavraSecretaSorteada[i] != listaDinamica[i]){
-               vitoria = false;
-            }
-         }
-      if(vitoria == true)
-         {
-            //mensagem na tela
-            tentativas = 0;
-         }        
-    
+function verificaLetraEscolhida(letra) {
+  let acertou = false;
+
+  for (let i = 0; i < palavraSecretaSorteada.length; i++) {
+    if (palavraSecretaSorteada[i] === letra) {
+      listaDinamica[i] = letra;
+      acertou = true;
+    }
+  }
+
+  if (!acertou) {
+    tentativas--;
+    atualizarImagemForca();
+  }
+
+  atualizarPalavraNaTela();
+  verificarFimDeJogo();
+  document.getElementById("tecla-" + letra).disabled = true;
+}
+
+function atualizarImagemForca() {
+  const image = document.getElementById("image");
+  switch (tentativas) {
+    case 6:
+      image.src = "../img/forca.png";
+      break;
+    case 5:
+      image.src = "../img/forca01.png";
+      break;
+    case 4:
+      image.src = "../img/forca02.png";
+      break;
+    case 3:
+      image.src = "../img/forca03.png";
+      break;
+    case 2:
+      image.src = "../img/forca04.png";
+      break;
+    case 1:
+      image.src = "../img/forca05.png";
+      break;
+    case 0:
+      image.src = "../img/forca06.png";
+      break;
+  }
+}
+function verificarFimDeJogo() {
+  if (listaDinamica.indexOf("_") === -1) {
+    alert("Parabéns! Você venceu! 🎉");
+    habilitarTeclado(false);
+  }
+
+  if (tentativas === 0) {
+    alert(
+      `Você perdeu! A palavra era: ${palavraSecretaSorteada}. Tente novamente!`
+    );
+    habilitarTeclado(false);
+  }
+}
+
+function habilitarTeclado(estado) {
+  const botoes = document.querySelectorAll("#teclado button");
+  botoes.forEach((botao) => {
+    if (botao.id !== "btnReniciar") {
+      botao.disabled = !estado;
+    }
+  });
+}
+
+function reiniciarJogo() {
+  iniciarJogo();
 }

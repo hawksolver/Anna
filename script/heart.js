@@ -280,6 +280,6 @@ setTimeout(() => {
 
   // Aguarda o tempo da transição antes de redirecionar
   setTimeout(() => {
-    window.location.href = "./telas/index.html"; // Redireciona para a próxima página
+    window.location.href = "./telas/cerebro.html"; // Redireciona para a próxima página
   }, 1000); // Tempo da transição (1s)
 }, 5000); // Tempo antes de iniciar a transição (5s)

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Absolute Cinema</title>
+    <style>
+      body {
+        margin: 0;
+        background: #000;
+        color: #fff;
+        overflow: hidden;
+        font-family: sans-serif;
+      }
+
+      /* Texto correndo */
+      .intro {
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        transform: translateY(-50%);
+        white-space: nowrap;
+        font-size: 2em;
+        animation: correr 5s linear forwards;
+      }
+
+      @keyframes correr {
+        to {
+          left: -100%;
+        }
+      }
+
+      /* FIM brilhante */
+      .fim {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 5em;
+        opacity: 0;
+        animation: aparecer 2s ease-out 5s forwards,
+          sumir 1s ease-in 10s forwards, brilho 2s infinite alternate; /* brilho SEM delay */
+        text-shadow: 0 0 20px #fff, 0 0 30px #5004b5, 0 0 40px #5004b5;
+      }
+
+      @keyframes brilho {
+        from {
+          text-shadow: 0 0 20px #fff, 0 0 30px #5004b5, 0 0 40px #5004b5;
+        }
+        to {
+          text-shadow: 0 0 40px #fff, 0 0 60px #5004b5, 0 0 80px #5004b5;
+        }
+      }
+      @keyframes aparecer {
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes sumir {
+        to {
+          opacity: 0;
+        }
+      }
+
+      /* Créditos subindo */
+      .creditos {
+        position: absolute;
+        bottom: -100%;
+        width: 100%;
+        text-align: center;
+        font-size: 1.5em;
+        line-height: 1.5;
+        opacity: 0;
+        animation: subir 20s linear forwards;
+        animation-delay: 11s; /* Começa após o FIM sumir */
+      }
+
+      @keyframes subir {
+        to {
+          bottom: 100%;
+          opacity: 1;
+        }
+      }
+
+      .parte-dois {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2em;
+        opacity: 0;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        animation: aparecer 2s ease-out forwards;
+        animation-delay: 30s;
+      }
+      .logo-cinema {
+        height: 60px; /* ajuste o tamanho conforme desejar */
+        filter: drop-shadow(0 0 10px #5004b5);
+      }
+    </style>
+  </head>
+  <body>
+    <audio autoplay loop>
+      <source src="../music/Those_Eyes.mp3" type="audio/mpeg" />
+      Seu navegador não suporta áudio.
+    </audio>
+    <div class="intro">Obrigado por ter tido pasciencia! E chegamos ao</div>
+
+    <div class="fim">FIM</div>
+
+    <div class="creditos">
+      <p>Programador Principal: Samuel</p>
+      <p>Produção: Samuel, João & Otavio</p>
+      <p>Direção: Samuel</p>
+      <p>Roteiro: Samuel</p>
+      <p>Efeitos Especiais: Samuel & ChatGPT</p>
+      <p>Elenco: Samuel, João e Otavio</p>
+      <p>Ideias Principais: Tik Tok, Instagram, Samuel, João</p>
+      <p>Ideias Secundarias: Otavio, Samuel, ChatGPT</p>
+      <p>Ator Principal: Otávio Borges</p>
+      <p>Trilha Sonora: Those Eyes (New West)</p>
+      <p>Secundario: Lisboa (ANAVITORIA)</p>
+      <p>Apoio Emocional: Anna(psicologa do Samuel) & Otavio Borges</p>
+      <p>Numero de Senhas: 3</p>
+      <p>As renuncias vem quando menos esperamos</p>
+      <p>Que Deus esteja com vc sempre independente das circunstâncias</p>
+      <p>Amém</p>
+    </div>
+
+    <!-- ...existing code... -->
+    <div class="parte-dois">ABSOLUTE CINEMA</div>
+    <!-- ...existing code... -->
+  </body>
+</html>
