@@ -200,6 +200,10 @@ body {
   #categoria {
     font-size: 1.6em;
   }
+  .zelda-icons i {
+    font-size: 30px;
+    padding: 0 200px;
+  }
 }
 @media (min-width: 769px) {
   .teclas button {

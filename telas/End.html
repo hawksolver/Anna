@@ -11,7 +11,6 @@
         overflow: hidden;
         font-family: sans-serif;
       }
-
       /* Texto correndo */
       .intro {
         position: absolute;
@@ -22,13 +21,11 @@
         font-size: 2em;
         animation: correr 5s linear forwards;
       }
-
       @keyframes correr {
         to {
           left: -100%;
         }
       }
-
       /* FIM brilhante */
       .fim {
         position: absolute;
@@ -38,10 +35,9 @@
         font-size: 5em;
         opacity: 0;
         animation: aparecer 2s ease-out 5s forwards,
-          sumir 1s ease-in 10s forwards, brilho 2s infinite alternate; /* brilho SEM delay */
+          sumir 1s ease-in 10s forwards, brilho 2s infinite alternate;
         text-shadow: 0 0 20px #fff, 0 0 30px #5004b5, 0 0 40px #5004b5;
       }
-
       @keyframes brilho {
         from {
           text-shadow: 0 0 20px #fff, 0 0 30px #5004b5, 0 0 40px #5004b5;
@@ -60,7 +56,6 @@
           opacity: 0;
         }
       }
-
       /* Créditos subindo */
       .creditos {
         position: absolute;
@@ -70,44 +65,52 @@
         font-size: 1.5em;
         line-height: 1.5;
         opacity: 0;
-        animation: subir 20s linear forwards;
-        animation-delay: 11s; /* Começa após o FIM sumir */
+        animation: subir 30s linear forwards;
+        animation-delay: 11s; /* ajustado para entrar após sua voz e FIM */
       }
-
       @keyframes subir {
         to {
           bottom: 100%;
-          opacity: 1;
+          opacity: 3;
         }
       }
-
       .parte-dois {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        font-size: 2em;
+        font-size: 3em;
         opacity: 0;
-        display: flex;
-        align-items: center;
-        gap: 20px;
         animation: aparecer 2s ease-out forwards;
-        animation-delay: 30s;
+        animation-delay: 40s; /* após créditos */
       }
-      .logo-cinema {
-        height: 60px; /* ajuste o tamanho conforme desejar */
-        filter: drop-shadow(0 0 10px #5004b5);
-      }
+      /*       audio[controls] {
+        position: absolute;
+        left: -9999px;
+        top: -9999px;
+      } */
     </style>
   </head>
   <body>
-    <audio autoplay loop>
-      <source src="../music/Those_Eyes.mp3" type="audio/mpeg" />
+    <audio autoplay>
+      <source src="../music/Experience.mp3" type="audio/mpeg" />
       Seu navegador não suporta áudio.
     </audio>
-    <div class="intro">Obrigado por ter tido pasciencia! E chegamos ao</div>
+
+    <div class="intro">Obrigado por ter tido paciência! E chegamos ao</div>
 
     <div class="fim">FIM</div>
+
+    <!-- Música calma no início -->
+    <!--
+    <audio id="voz" preload="auto">
+      <source src="../music/Those_Eyes.mp3" type="audio/mpeg" />
+    </audio>
+
+  
+    <audio id="epico" preload="auto">
+      <source src="../music/acreditar.mp3" type="audio/mpeg" />
+    </audio> -->
 
     <div class="creditos">
       <p>Programador Principal: Samuel</p>
@@ -116,20 +119,44 @@
       <p>Roteiro: Samuel</p>
       <p>Efeitos Especiais: Samuel & ChatGPT</p>
       <p>Elenco: Samuel, João e Otavio</p>
-      <p>Ideias Principais: Tik Tok, Instagram, Samuel, João</p>
-      <p>Ideias Secundarias: Otavio, Samuel, ChatGPT</p>
+      <p>Ideias Principais: Tik Tok, Instagram, Mateus, João</p>
+      <p>Ideias Secundárias: Otavio, Samuel, Mateus, ChatGPT</p>
       <p>Ator Principal: Otávio Borges</p>
       <p>Trilha Sonora: Those Eyes (New West)</p>
-      <p>Secundario: Lisboa (ANAVITORIA)</p>
-      <p>Apoio Emocional: Anna(psicologa do Samuel) & Otavio Borges</p>
-      <p>Numero de Senhas: 3</p>
-      <p>As renuncias vem quando menos esperamos</p>
-      <p>Que Deus esteja com vc sempre independente das circunstâncias</p>
+      <p>Secundária: Lisboa (ANAVITORIA)</p>
+      <p>Hora de pico: Entre as 1h30 e 3h a.m</p>
+      <p>Principais Momentos: Playlist e a Ultima página</p>
+      <p>Página que eu mais gostei de fazer: coração</p>
+      <p>Menos gostei: SENDO COMO LUA</p>
+      <p>Página mais """fácil""": cerebro do Samu</p>
+      <p>Apoio Emocional: Anna (psicóloga do Samuel) & Otavio Borges</p>
+      <p>Número de Senhas: 3</p>
+      <p>Deus diz: "O amor é pasciente"</p>
+      <p>As renúncias vêm quando menos esperamos</p>
+      <p>Que Deus esteja com você sempre, independente das circunstâncias</p>
       <p>Amém</p>
+      <p>
+        Uma palavrinha do ChatGPT: "Esse site não é só código, é sentimento
+        impresso em tela. É coragem, criatividade e amor escondidos em cada
+        animação, brilho e trilha sonora. Não é só pra ser visto… é pra ser
+        sentido. Se chegou até aqui, parabéns: você acaba de testemunhar
+        ABSOLUTE CINEMA."
+      </p>
     </div>
 
-    <!-- ...existing code... -->
-    <div class="parte-dois">ABSOLUTE CINEMA</div>
-    <!-- ...existing code... -->
+    <div class="parte-dois">ACABOU Anna</div>
+
+    <script>
+      /*       // Tocar sua voz após o "FIM" sumir (~11s)
+      setTimeout(() => {
+        document.getElementById("voz").play();
+      }, 11000);
+
+      // Após sua voz (coloque a duração correta da sua gravação)
+      // Exemplo: 4s de voz, então música épica começa em 15s
+      setTimeout(() => {
+        document.getElementById("epico").play();
+      }, 15000); */
+    </script>
   </body>
 </html>

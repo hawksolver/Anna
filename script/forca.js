@@ -28,7 +28,7 @@ const palavras = [
 
 // Função da senha
 function verificarSenha() {
-  const senhaCorreta = "1234"; // troca aqui a senha que quiser
+  const senhaCorreta = "5004b5"; // troca aqui a senha que quiser
   const senhaDigitada = document.getElementById("input-senha").value.trim();
 
   if (senhaDigitada === senhaCorreta) {

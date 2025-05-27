@@ -64,10 +64,11 @@ body.transition {
 @media (min-width: 600px) {
   .comeco {
     width: 600px;
+
     padding: 60px;
   }
   .comeco h2 {
-    font-size: 30px;
+    font-size: 25px;
   }
   .comeco p {
     font-size: 14px;
@@ -80,5 +81,25 @@ body.transition {
     transform: scale(1.2); /* Aumenta o zoom */
     opacity: 0; /* Desaparece gradualmente */
     transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+  }
+}
+@media (max-width: 600px) {
+  .comeco {
+    width: 370px;
+    height: 160px;
+    padding: 45px;
+  }
+  .comeco h2 {
+    font-size: 20px;
+  }
+  .comeco h4 {
+    font-size: 16px;
+  }
+  .comeco p {
+    font-size: 16px;
+  }
+  .comeco button {
+    padding: 12px 24px;
+    font-size: 16px;
   }
 }

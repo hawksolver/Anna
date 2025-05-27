@@ -49,6 +49,7 @@
         transform: translate(-50%, -50%);
         text-align: center;
         font-family: "Arial", sans-serif;
+        display: none;
       }
       .zelda-text {
         font-size: 20px;
@@ -66,9 +67,83 @@
         width: 220px;
         height: 40px;
       }
+      /* Senhas */
+      #conteudo {
+        display: none;
+        animation: fadeIn 1s ease forwards;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      #tela-senha {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #0a12ff;
+      }
+      #tela-senha h2 {
+        color: #ffffff;
+        font-size: 1.5em;
+        text-align: center;
+      }
+      #tela-senha input {
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 5px;
+        border: none;
+        font-size: 1em;
+      }
+
+      #tela-senha button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #5004b5;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 1em;
+        transition: background-color 0.3s ease;
+      }
+
+      #tela-senha button:hover {
+        background-color: #040edc;
+      }
+
+      #mensagem-erro {
+        color: #ff4c4c;
+        margin-top: 10px;
+        display: none;
+        font-weight: 700;
+      }
     </style>
   </head>
   <body>
+    <div id="tela-senha">
+      <h2>
+        Digite a senha para continuar <br />
+        <strong>DICA: </strong> é is the legend of
+      </h2>
+      <input
+        type="password"
+        id="input-senha"
+        placeholder="Senha"
+        autocomplete="off"
+      />
+      <button onclick="verificarSenha()">Entrar</button>
+      <p id="mensagem-erro">Senha incorreta!</p>
+    </div>
+
     <div class="zelda-info">
       <h1 class="senha" style="color: #5004b5">#5004b5</h1>
       <p class="zelda-text">
@@ -86,45 +161,50 @@
     </div>
 
     <script>
-      function checkPassword() {
-        const senha = prompt("Ta aqui já é? Bem rápido, é o último...");
-        if (senha === "zelda") {
-          // <<< Coloca aqui a senha especial
-          document.getElementById("conteudo").style.display = "block";
-          document.querySelector(".senha-btn").style.display = "none";
-          document.querySelector("h2").style.display = "none";
+      // Função da senha
+      function verificarSenha() {
+        const senhaCorreta = "zelda"; // troca aqui a senha que quiser
+        const senhaDigitada = document
+          .getElementById("input-senha")
+          .value.trim();
 
-          // Fica o fundo preto
-          document.body.style.backgroundColor = "#000";
+        if (senhaDigitada === senhaCorreta) {
+          document.getElementById("tela-senha").style.display = "none";
+          document.querySelector(".zelda-info").style.display = "block";
+
+          function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "❤️";
+
+            // Tamanho aleatório
+            const size = Math.random() * 10 + 15; // Tamanho entre 15px e 25px
+            heart.style.fontSize = `${size}px`;
+
+            // Posição aleatória (horizontal)
+            const left = Math.random() * window.innerWidth;
+            heart.style.left = `${left}px`;
+
+            // Animação de queda
+            document.body.appendChild(heart);
+
+            // Remover o coração depois de cair
+            setTimeout(() => {
+              heart.remove();
+            }, 4000); // 4s é o tempo de duração da animação
+          }
+
+          // Criar um novo coração a cada 0.1s
+          setInterval(createHeart, 30);
         } else {
-          alert("Ahn? Não é essa! Tenta de novo! 💕");
+          const erro = document.getElementById("mensagem-erro");
+          erro.style.display = "block";
+          setTimeout(() => {
+            erro.style.display = "none";
+          }, 2000);
         }
       }
       // Função para criar os corações
-      function createHeart() {
-        const heart = document.createElement("div");
-        heart.classList.add("heart");
-        heart.innerHTML = "❤️";
-
-        // Tamanho aleatório
-        const size = Math.random() * 10 + 15; // Tamanho entre 15px e 25px
-        heart.style.fontSize = `${size}px`;
-
-        // Posição aleatória (horizontal)
-        const left = Math.random() * window.innerWidth;
-        heart.style.left = `${left}px`;
-
-        // Animação de queda
-        document.body.appendChild(heart);
-
-        // Remover o coração depois de cair
-        setTimeout(() => {
-          heart.remove();
-        }, 4000); // 4s é o tempo de duração da animação
-      }
-
-      // Criar um novo coração a cada 0.1s
-      setInterval(createHeart, 30);
     </script>
   </body>
 </html>

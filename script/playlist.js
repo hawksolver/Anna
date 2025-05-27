@@ -26,10 +26,9 @@ const musicas = [
   },
   {
     nome: "Alianca",
-    artista:
-      "Ouvi pouco, mas é boa, coloquei <br> pra dar 5 musicas kkkkkkk.k<br>Amei essa foto",
+    artista: "Coloquei <br> pra dar 5 musicas kkkkkkk.k<br>Amei essa foto",
     imagem: "../img/mal.png",
-    audio: "../music/acreditar.mp3",
+    audio: "../music/Alianca.mp3",
   },
   // Adicione até 10 músicas assim
 ];
@@ -117,10 +116,8 @@ document.querySelector(".progress-container").addEventListener("click", (e) => {
 
 /* Senha PART */
 function checkPassword() {
-  const senha = prompt(
-    "Essa mensagem é só pra você... Qual a nossa senha secreta? 💖"
-  );
-  if (senha === "MilkaOreo") {
+  const senha = prompt("Senha? DICA: Vc ama!");
+  if (senha === "milkaoreo") {
     // <<< Coloca aqui a senha especial
     document.getElementById("conteudo").style.display = "block";
     document.querySelector(".senha-btn").style.display = "none";
